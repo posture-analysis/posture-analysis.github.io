@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Posture Analysis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500|Inconsolata:400,700" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+		<h1>Posture Analysis Simulator</h1>
+</header>
+<section class="split">
+<div class="display">
+    <svg id="console" height="350px" width="350px">
+    </svg>
+    <div class="class">Posture <span>Caliberating</span></div>
+</div>
+<div class="analytics">
+    <div class="placeholder">
+      <div class="row acc1">
+        <div class="accelerometer"></div>
+        <div class="pitch">Accelerometer 1: <span>-100</span></div>
+      </div>
+      <div class="row acc2">
+        <div class="accelerometer"></div>
+        <div class="pitch">Accelerometer 2: <span>-100</span></div>
+      </div>
+      <div class="row acc3">
+        <div class="accelerometer"></div>
+        <div class="pitch">Accelerometer 3: <span>-100</span></div>
+      </div>
+    </div>
+</div>
+</section>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDL2mzlJGHlqbM5tmdKz9JR3QxHmeuVhPI",
+    authDomain: "posture-analysis.firebaseapp.com",
+    databaseURL: "https://posture-analysis.firebaseio.com",
+    projectId: "posture-analysis",
+    storageBucket: "posture-analysis.appspot.com",
+    messagingSenderId: "204192926813"
+  };
+  firebase.initializeApp(config);
+</script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

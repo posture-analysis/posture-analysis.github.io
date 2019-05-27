@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>Hello</p>
+	<svg id="console" height="400px" width="400px"></svg>
+	<p>World</p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+<script type="text/javascript">
+	// s = Snap("#console");
+	// var path = s.path("M 10 10 Q 10 200 10 400");
+	// path.attr({
+	// 	fill: "transparent",
+	// 	stroke: "#1dd1a1",
+	// 	strokeWidth: 5
+	// });
+
+	// mark = s.circle(10, 20, 10);
+
+	// setTimeout(function(){
+	// 	path.animate({ d: "M20 20 Q 240 175 20 330" }, 1500, mina.bounce);
+	// 	mark.animate(20,30,{r: 15}, 500);
+	// },2000);
+	var rect = Snap().rect(0, 0, 10, 10);
+// in given context is equivalent to
+rect.animate({x: 10}, 1000);
+</script>
+</body>
+</html>
