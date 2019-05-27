@@ -183,16 +183,19 @@ section.split {
 
 .class {
   position: absolute;
-  top: 20px;
-  right: 10px;
-  color: white;
+  left: 50%;
+  bottom: 40px;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  color: #576574;
   text-transform: uppercase; }
   .class span {
     font-size: 1.2em;
     margin: 0px 10px;
     padding: 10px 15px;
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     text-transform: capitalize; }
 
 @media only screen and (max-width: 700px) {

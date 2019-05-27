@@ -82,7 +82,6 @@ function getStringPath(arr){
 
 function plot(val){
 	let mapped = plotMappings(val);
-	console.log(mapped);
 	let update = getStringPath(mapped);
 	path.animate({ d: update }, 500);
 	marker1.animate({x: mapped[0]-8, y: mapped[1]-8}, 500);
@@ -94,16 +93,34 @@ function plot(val){
 function classify(pitch){
 	let nodeDiffA = Math.abs(pitch[1] - pitch[0]);
 	let nodeDiffB = Math.abs(pitch[2] - pitch[1]);
-	let param = nodeDiffA*nodeDiffB;
-	if(param<200){
-		return 0;
-	}
-	else if(param<500){
-		return 1;
+	let check;
+	if(pitch[1]>70){
+		check = Math.abs(90 - pitch[1]);
 	}
 	else{
+		check = pitch[1];
+	}
+	if(check>=0 && check<=20){
+		if(nodeDiffA<=15&&nodeDiffB<=15)
+			return 0;
+		else if(nodeDiffA<=30&&nodeDiffB<=30)
+			return 1;
+		else
+			return 2;
+	}
+	else if(check>20 && check<=40){
+		if(nodeDiffA<=5&&nodeDiffB<=5)
+			return 1;
+		else if(nodeDiffA<=10&&nodeDiffB<=10)
+			return 2;
+		else
+			return 2;
+	}
+	else if(check>40){
 		return 2;
 	}
+
+	return 3;
 }
 
 var notified = 0;
@@ -111,30 +128,23 @@ var notified = 0;
 function updateClass(c){
 	if(c==0){
 		$('.class span').text('Good');
-		goodCount++;
 	}
 	else if(c==1){
 		$('.class span').text('Average');
-		avgCount++;
 	}
 	else if(c==2){
 		$('.class span').text('Bad');
-		if(notified==0){
-			notify("Posture Analysis","Bad Posture Detected.","");
-			notified=1;
-			setTimeout(function(){
-				notified=0;
-			},1*60*1000);
-		}
-		badCount++;
+		// if(notified==0){
+		// 	notify("Posture Analysis","Bad Posture Detected.","");
+		// 	notified=1;
+		// 	setTimeout(function(){
+		// 		notified=0;
+		// 	},1*60*1000);
+		// }
 	}
-	let total = goodCount + avgCount + badCount;
-	let gPercent = Math.floor((goodCount/total)*100);
-	let aPercent = Math.floor((avgCount/total)*100);
-	let bPercent = Math.floor((badCount/total)*100);
-	$('.green').css('width',gPercent+'%');
-	$('.yellow').css('width',aPercent+'%');
-	$('.red').css('width',bPercent+'%');
+	else{
+		$('.class span').text('Unsure');
+	}
 }
 
 function updateVals(p){
