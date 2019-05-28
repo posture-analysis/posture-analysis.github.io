@@ -171,11 +171,11 @@ marker1.attr({
 });
 var marker2 = s.rect(initMap[2]-8,initMap[3]-8,16,16,8,8);
 marker2.attr({
-	fill:"#4a69bd"
+	fill:"#eb4d4b"
 });
 var marker3 = s.rect(initMap[4]-8,initMap[5]-8,16,16,8,8);
 marker3.attr({
-	fill:"#4a69bd"
+	fill:"#6ab04c"
 });
 
 firebaseRef.on('value', function(data){

@@ -166,6 +166,12 @@ section.split {
         .analytics .placeholder .row .pitch span {
           font-family: inherit;
           font-weight: 600; }
+    .analytics .placeholder .acc1 .accelerometer {
+      background: #4a69bd; }
+    .analytics .placeholder .acc2 .accelerometer {
+      background: #eb4d4b; }
+    .analytics .placeholder .acc3 .accelerometer {
+      background: #6ab04c; }
 
 #console {
   position: absolute;
